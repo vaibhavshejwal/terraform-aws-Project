@@ -35,9 +35,9 @@ flowchart TB
     PublicRT --> NAT
     DBEC2 --> PrivateRT
     PrivateRT --> NAT
-    NAT --> IGW
+    NAT --> IGW```
 
-    
+
 What This Project Does:
 
 > Networking:
