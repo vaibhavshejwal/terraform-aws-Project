@@ -6,36 +6,11 @@ following AWS best practices.
 
 The infrastructure has been successfully deployed and tested on AWS.
 
----
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 🏗 Architecture Diagram
 
-```mermaid
-flowchart TB
-    Internet((Internet))
-    IGW[Internet Gateway]
-
-    subgraph VPC["VPC (10.0.0.0/16)"]
-        subgraph PublicSubnet["Public Subnet (10.0.1.0/24)"]
-            WebEC2[Web Server EC2]
-            NAT[NAT Gateway]
-        end
-
-        subgraph PrivateSubnet["Private Subnet (10.0.2.0/24)"]
-            DBEC2[Database EC2]
-        end
-
-        PublicRT[Public Route Table]
-        PrivateRT[Private Route Table]
-    end
-
-    Internet --> IGW
-    IGW --> PublicRT
-    PublicRT --> WebEC2
-    PublicRT --> NAT
-    DBEC2 --> PrivateRT
-    PrivateRT --> NAT
-    NAT --> IGW```
+<img width="616" height="798" alt="diagram-export-12-30-2025-11_15_53-PM" src="https://github.com/user-attachments/assets/a03ae153-26ca-4d69-9f93-4db05ed1157c" />
 
 
 What This Project Does:
