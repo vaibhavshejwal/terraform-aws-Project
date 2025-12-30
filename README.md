@@ -13,52 +13,57 @@ The infrastructure has been successfully deployed and tested on AWS.
 <img width="616" height="798" alt="diagram-export-12-30-2025-11_15_53-PM" src="https://github.com/user-attachments/assets/a03ae153-26ca-4d69-9f93-4db05ed1157c" />
 
 
-> What This Project Does -->
+## What This Project Does
 
-Networking:
-        Creates a custom VPC with CIDR 10.0.0.0/16
-        Public subnet for internet-facing resources
-        Private subnet for internal resources
-        Internet Gateway for inbound and outbound internet access
-        NAT Gateway to allow outbound internet access from private subnet
-        Separate route tables for public and private traffic.
-Compute:
-        Web Server EC2
-        Launched in the public subnet
-        Runs Amazon Linux
-        Apache installed automatically using user data
-        Accessible via public IP
+### Networking
+- Creates a custom VPC with CIDR `10.0.0.0/16`
+- Public subnet for internet-facing resources
+- Private subnet for internal resources
+- Internet Gateway for inbound and outbound internet access
+- NAT Gateway to allow outbound internet access from private subnet
+- Separate route tables for public and private traffic
 
-Database EC2:
-        Launched in the private subnet
-        No public IP
-        Internet access only through NAT Gateway
-        Security
+### Compute
+- **Web Server EC2**
+  - Launched in the public subnet
+  - Runs Amazon Linux
+  - Apache installed automatically using user data
+  - Accessible via public IP
 
-Security group allowing:
-        HTTP (port 80)
-        SSH (port 22)
-        All outbound traffic
-        Private instance is not exposed to the internet
+- **Database EC2**
+  - Launched in the private subnet
+  - No public IP
+  - Internet access only through NAT Gateway
 
-Tools and Technologies Used:
-        Terraform
-        AWS EC2
-        AWS VPC, Subnets, Route Tables
-        Internet Gateway and NAT Gateway
-        Amazon Linux
-        Apache HTTP Server
-        Git and GitHub
+### Security
+- Security group allowing:
+  - HTTP (port 80)
+  - SSH (port 22)
+  - All outbound traffic
+- Private instance is not exposed to the internet
+
+## Tools and Technologies Used
+
+- Terraform
+- AWS EC2
+- AWS VPC, Subnets, Route Tables
+- Internet Gateway and NAT Gateway
+- Amazon Linux
+- Apache HTTP Server
+- Git and GitHub
+
+## Deployment
 
 After deployment:
-        Terraform outputs the public IP of the web server
-        Open the IP in a browser to verify Apache is running
+- Terraform outputs the public IP of the web server
+- Open the IP in a browser to verify Apache is running
 
-Live Deployment Status
-        This infrastructure has been successfully deployed on AWS using Terraform.
-        All components were created and validated in a real AWS environment.
+## Live Deployment Status
 
-Project Structure:
+This infrastructure has been successfully deployed on AWS using Terraform.  
+All components were created and validated in a real AWS environment.
+
+## Project Structure
         terraform-aws-vpc-ec2/
         │
         ├── main.tf
@@ -68,21 +73,23 @@ Project Structure:
         ├── .gitignore
         └── .terraform.lock.hcl
 
-        Terraform state files are intentionally excluded from version control.
+    Terraform state files are intentionally excluded from version control.
 
-Key Learnings:
-        Difference between public and private subnets in AWS
-        How NAT Gateway enables secure outbound access
-        Role of route tables in network traffic flow
-        Importance of security groups in controlling access
-        Automating EC2 configuration using Terraform user data
+## Key Learnings
 
-Future Improvements:
-        Use remote backend with S3 and DynamoDB
-        Convert configuration into reusable Terraform modules
-        Add Application Load Balancer
-        Implement Auto Scaling Group
-        Introduce a bastion host for SSH access
+- Difference between public and private subnets in AWS
+- How NAT Gateway enables secure outbound access
+- Role of route tables in network traffic flow
+- Importance of security groups in controlling access
+- Automating EC2 configuration using Terraform user data
 
-Author:
-Vaibhav Shejwal
+## Future Improvements
+
+- Use remote backend with S3 and DynamoDB
+- Convert configuration into reusable Terraform modules
+- Add Application Load Balancer
+- Implement Auto Scaling Group
+- Introduce a bastion host for SSH access
+
+## Author
+**Vaibhav Shejwal**
